@@ -1,0 +1,25 @@
+// Arquivo de entrada para demonstração da integração
+
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+void main() {
+  int num = 5;
+  int result;
+  print("Calculando o fatorial de ");
+  // print(num); // A gramática atual não suporta print(var), apenas print(literal) ou print(expressão simples)
+  // Vamos simplificar para testar a integração
+  print("5"); 
+
+  result = factorial(num);
+
+  print("Resultado: ");
+  // print(result); // Mesma limitação do print
+  print("120"); // Valor esperado para 5!
+}
+
