@@ -21,7 +21,10 @@ Este projeto implementa um front-end básico de compilador, incluindo um analisa
 │   └── jflex-full-1.9.1.jar
 ├── exemplo_lexico.txt        # Arquivo de exemplo para teste léxico
 ├── input.txt                 # Arquivo de exemplo para teste de integração
+├── erro_lexico.txt           # Arquivo de exemplo para teste de erro léxico
+├── erro_sintatico.txt        # Arquivo de exemplo para teste de erro sintático
 ├── run_compilador.bat        # Script para automatizar compilação e execução no Windows
+├── run_erro.bat              # Script para automatizar execução de testes de erro no Windows
 └── README.md                 # Este arquivo
 ```
 
@@ -192,3 +195,43 @@ Durante a execução, você verá:
 - Código-fonte de entrada (`input.txt`, `exemplo_lexico.txt`).
 - Script de automação para Windows (`run_compilador.bat`).
 - Este arquivo `README.md`.
+
+
+## Teste de Casos de Erro (Léxico e Sintático)
+
+Para demonstrar como o compilador lida com entradas inválidas, foram criados dois arquivos de exemplo com erros intencionais:
+
+- `erro_lexico.txt`: Contém um caractere ilegal (`#`) que o analisador léxico não consegue reconhecer.
+- `erro_sintatico.txt`: Contém um erro de sintaxe (ponto e vírgula ausente) que o analisador sintático deve identificar.
+
+### Execução Automatizada dos Testes de Erro (Windows)
+
+Um novo script batch, `run_erro.bat`, foi criado para automatizar a execução desses testes de erro no Windows. Este script executa:
+
+1.  O `TesteAnalisadorLexico.java` com `erro_lexico.txt`.
+2.  O `TesteAnalisadorSintatico.java` com `erro_sintatico.txt`.
+
+### Como executar o script no Windows:
+
+1. Abra o Visual Studio Code (VS Code)
+2. Abra o diretório do projeto
+3. Abra um terminal PowerShell no VS Code (Terminal > New Terminal)
+4. Execute o comando:
+   ```
+   .\run_erro.bat
+   ```
+
+O script exibirá as mensagens de erro geradas pelo analisador léxico e sintático, demonstrando a capacidade do compilador de identificar e reportar problemas na entrada.
+
+## Entregáveis desse projeto (trecho usável pelo professor Ronaldo da cadeira de ATC - Unifor)
+
+- Arquivo de especificação JFlex (`analisador_lexico.flex`) e a classe `Scanner.java` gerada.
+- Arquivo de especificação JCup (`analisador_sintatico.cup`) e as classes `parser.java` e `sym.java` geradas.
+- Scripts de teste (`TesteAnalisadorLexico.java`, `TesteAnalisadorSintatico.java`) e demonstração de integração (`Compilador.java`).
+- Código-fonte de entrada (`input.txt`, `exemplo_lexico.txt`).
+- Script de automação para Windows (`run_compilador.bat`).
+- Arquivos de exemplo com erros (`erro_lexico.txt`, `erro_sintatico.txt`).
+- Script de automação para testes de erro (`run_erro.bat`).
+- Este arquivo `README.md`.
+
+
