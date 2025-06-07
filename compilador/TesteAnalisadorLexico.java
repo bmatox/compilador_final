@@ -13,6 +13,8 @@ public class TesteAnalisadorLexico {
 
         String inputFile = args[0];
 
+        
+
         try {
             System.out.println("Analisando arquivo: " + inputFile);
             Scanner scanner = new Scanner(new FileReader(inputFile));

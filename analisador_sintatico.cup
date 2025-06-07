@@ -2,9 +2,12 @@ package compilador;
 
 import java_cup.runtime.*;
 import java.util.*;
+import compilador.ast.*;
 
 /* Prelúdio (código Java a ser incluído na classe Parser) */
 parser code {: 
+
+
     // Método para reportar erros sintáticos
     public void report_error(String message, Object info) {
         StringBuilder m = new StringBuilder("Erro Sintático");
@@ -26,6 +29,9 @@ parser code {:
         throw new RuntimeException("Erro Sintático Fatal");
     }
 :};
+
+
+
 
 /* Declaração de Terminais */
 // Keywords
@@ -49,7 +55,7 @@ non terminal var_declaration, type_specifier, fun_declaration;
 non terminal params, param_list, param;
 non terminal compound_stmt, local_declarations, statement_list, statement;
 non terminal expression_stmt, selection_stmt, iteration_stmt, return_stmt, print_stmt;
-non terminal expression, var, simple_expression, additive_expression, term, factor, relational_op, add_op, mul_op;
+non terminal ASTNode expression, var, simple_expression, additive_expression, term, factor, relational_op, add_op, mul_op;
 non terminal call, args, arg_list;
 
 /* Precedência e Associatividade dos Operadores */
@@ -128,4 +134,21 @@ call ::= ID LPAREN args RPAREN;
 args ::= arg_list | /* empty */ ;
 
 arg_list ::= arg_list COMMA expression | expression;
+
+
+additive_expression ::= additive_expression:e1 PLUS term:e2
+    {: RESULT = new BinOpNode("+", e1, e2); :;}
+  | additive_expression:e1 MINUS term:e2
+    {: RESULT = new BinOpNode("-", e1, e2); :;}
+  | term:e
+    {: RESULT = e; :;}
+  ;
+
+
+factor ::= INTEGER_LITERAL:n
+    {: RESULT = new LiteralNode(n.toString()); :;}
+  | LPAREN expression:e RPAREN
+    {: RESULT = e; :;}
+  ;
+
 
