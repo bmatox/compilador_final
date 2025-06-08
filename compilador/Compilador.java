@@ -43,9 +43,8 @@ public class Compilador {
             e.printStackTrace();
             System.exit(1);
         } catch (Exception e) {
-            // Erros sintáticos são geralmente tratados pelos métodos report_error/report_fatal_error no parser
+            // Captura erros de análise sintática ou outros erros inesperados
             System.err.println("\n--- Erro Durante a Compilação ---");
-            // e.printStackTrace(); // Descomente para detalhes
             System.err.println(e.getMessage());
             System.exit(1);
         }

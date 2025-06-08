@@ -28,7 +28,7 @@ parser code {:
 :};
 
 /* Declaração de Terminais */
-// Keywords
+// Palavras-chave
 terminal IF, ELSE, WHILE, RETURN, INT, FLOAT, VOID, PRINT;
 // Identificadores e Literais
 terminal String ID;
@@ -128,4 +128,3 @@ call ::= ID LPAREN args RPAREN;
 args ::= arg_list | /* empty */ ;
 
 arg_list ::= arg_list COMMA expression | expression;
-
