@@ -186,17 +186,7 @@ Durante a execução, você verá:
 - Os separadores de caminho e o separador de classpath variam entre sistemas operacionais:
   - Linux/Mac: `/` para caminhos e `:` para classpath
   - Windows: `\` para caminhos e `;` para classpath
-
-## Entregáveis desse projeto (trecho usável pelo professor Ronaldo da cadeira de ATC - Unifor)
-
-- Arquivo de especificação JFlex (`analisador_lexico.flex`) e a classe `Scanner.java` gerada.
-- Arquivo de especificação JCup (`analisador_sintatico.cup`) e as classes `parser.java` e `sym.java` geradas.
-- Scripts de teste (`TesteAnalisadorLexico.java`, `TesteAnalisadorSintatico.java`) e demonstração de integração (`Compilador.java`).
-- Código-fonte de entrada (`input.txt`, `exemplo_lexico.txt`).
-- Script de automação para Windows (`run_compilador.bat`).
-- Este arquivo `README.md`.
-
-
+  
 ## Teste de Casos de Erro (Léxico e Sintático)
 
 Para demonstrar como o compilador lida com entradas inválidas, foram criados dois arquivos de exemplo com erros intencionais:
